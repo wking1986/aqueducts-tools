@@ -1,0 +1,9 @@
+source 'http://ruby.taobao.org'
+
+gem 'elasticsearch'
+gem 'hashie'
+gem 'jbuilder'
+gem 'thor'
+gem 'zookeeper'
+gem 'json'
+gem 'thrift', '~> 0.7.0'
