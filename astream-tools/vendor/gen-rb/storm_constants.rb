@@ -4,5 +4,5 @@
 # DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 #
 
-require './storm_types'
+require '../vendor/gen-rb/storm_types'
 

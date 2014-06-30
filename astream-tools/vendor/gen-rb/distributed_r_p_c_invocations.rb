@@ -5,7 +5,7 @@
 #
 
 require 'thrift'
-require './storm_types'
+require '../vendor/gen-rb/storm_types'
 
 module DistributedRPCInvocations
   class Client

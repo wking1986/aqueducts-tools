@@ -2,9 +2,9 @@
 $:.push('gen-rb')
 
 require 'thor'
-require './storm_info'
-require './kafka_flow'
-require './elasticsearch_data'
+require '../lib/storm_info'
+require '../lib/kafka_flow'
+require '../lib/elasticsearch_data'
 
 class Tools < Thor
   desc "search topology ", "search storm topology info"
