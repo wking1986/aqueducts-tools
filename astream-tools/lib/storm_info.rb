@@ -115,28 +115,3 @@ class Storm_info
     @@transport.close
   end
 end
-
-#puts "start"
-
-si = Storm_info.new
-
- puts si.get_topology_spout('sf_uc')
-
-#cluster_info = si.get_cluster_info()
-#cluster_info = JSON.parse( cluster_info)
-#puts cluster_info.class
-
-#topolog = []
-
-#topolog =  si.get_topology_name()
-#topolog = topolog.join(", ")
-#puts topolog
-
-#topolog.each do |one|
-#	puts one
-#end
-
-
-
-
-

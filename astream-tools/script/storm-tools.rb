@@ -21,7 +21,9 @@ class Tools < Thor
        if options[:list] == true
           topology_name = []
           topology_name = si.get_topology_name() 
-          topology_name.each do |to|
+          topoNum = topology_name.length
+	  puts "topology number: #{topoNum}"
+	  topology_name.each do |to|
             puts to
           end
        elsif options[:name] != "name" and options[:name] != nil
@@ -30,9 +32,9 @@ class Tools < Thor
              while show_frequency > 0 do 
                 topology_spout = Hash.new
                 topology_spout = si.get_topology_spout(options[:name])
-                topology_spout.each do |toname, value| 
-                  puts "spoutMessagePerSec:#{value/600}"
-                end
+                #topology_spout.each do |toname, value| 
+                  puts "spoutMessagePerSec:#{topology_spout/600}"
+       		#end
                 sleep show_frequency
              end
           end
@@ -68,24 +70,5 @@ class Tools < Thor
        end
     end
   end
-#	# remove duplication form  array
-#	def removeDu(list)
-#	   noDu = Array.new		
-#	   flag = false
-#	   list.each do |each_|
-#		flag = true	
-#		noDu.each do |du|
-#		   if du == each_
-#			flag = false
-#		    end
-#		end
-#		if flag
-#		   noDu.push(each_)
-#		end
-#  	   end
-#	return noDu
-#	end
-
 end
-
 Tools.start(ARGV)
