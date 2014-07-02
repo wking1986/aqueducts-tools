@@ -13,6 +13,7 @@ class Tools < Thor
   option :elasticsearch, :type => :string, :aliases => :e, :banner => "argument:item,calculation,unit,num,show_frequency"
   option :kafka, :type => :boolean, :aliases => :k, :banner => "no argument,return kafka out,in bytes"
   option :storm, :type => :numeric, :aliases => :s, :banner => "show frequency,1 is best"
+  option :host, :type => :boolean, :aliases => :h, :banner => "no argument, return topology host list"
   def search(arg)
     if arg == "topology"
        si = Storm_info.new
@@ -51,11 +52,40 @@ class Tools < Thor
                sleep show_frequency
              end
           end
+	  #host -h: puts host list
+	  if options[:host] == true
+                host_list = Array.new
+	        host_list = si.get_host_list(options[:name])
+ 	        #remove duplication
+ 	        nodup = si.removeDu(host_list)
+		size  = nodup.length	
+		nodup = nodup.sort!
+		nodup = nodup.join("\n")
+	        puts "host number : #{size}\n"+nodup
+	  end
        else
          puts 'ERROR:"--name/-n need topology name or you need use --name/-n "'
        end
     end
   end
+#	# remove duplication form  array
+#	def removeDu(list)
+#	   noDu = Array.new		
+#	   flag = false
+#	   list.each do |each_|
+#		flag = true	
+#		noDu.each do |du|
+#		   if du == each_
+#			flag = false
+#		    end
+#		end
+#		if flag
+#		   noDu.push(each_)
+#		end
+#  	   end
+#	return noDu
+#	end
+
 end
 
 Tools.start(ARGV)
