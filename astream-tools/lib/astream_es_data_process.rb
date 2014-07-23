@@ -5,7 +5,7 @@ require 'rest-client'
 require 'jsonify'
 require "../vendor/gen-rb/product_service_info"
 
-#该类会调用A_stream_es_data的search方法获取相关数据
+#该类会调用Astream_es_data的search方法获取相关数据
 #../script 下面的a-stream-tools.rb中会根据命令行参数调用 该类的get_es_data函数
 class Astream_es_data_process
   # get_es_data函数接受参数，根据输入的product/service 查询从from到to的相关信息
