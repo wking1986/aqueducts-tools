@@ -3,8 +3,7 @@ $:.push("gen-rb")
 
 require 'rest-client' 
 require 'jsonify'
-require "/home/work/opbin/aqueducts-tools/astream-tools/lib/product_service_info.rb"
-#require "./product_service_info.rb"
+require "../vendor/gen-rb/product_service_info"
 
 #该类会调用A_stream_es_data的search方法获取相关数据
 #../script 下面的a-stream-tools.rb中会根据命令行参数调用 该类的get_es_data函数
