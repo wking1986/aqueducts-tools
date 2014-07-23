@@ -414,26 +414,3 @@ class Aqueducts_KPI_info
     return format("%.1f",yes_num/(sum*1.0)*100).to_f,yes_num,no_num
   end 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
