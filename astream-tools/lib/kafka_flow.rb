@@ -29,6 +29,8 @@ class Kafka_flow
     kafkaMsgCountSum = 0 
       hosts.each do |host|
       kafkaCmdValue = `java -jar #{@@jarPath} - #{host}:#{@@port} '"#{@@kafkaOp}":name="#{topicname}-#{object}",type="#{@@type}"' Count 2>&1`
+      #by jiqiang test
+      #puts  "kafkaCmdValue: -- "+kafkaCmdValue
       kafkaMsgCount = kafkaCmdValue.split(": ").last.to_i
       kafkaMsgCountSum = kafkaMsgCountSum + kafkaMsgCount.to_i
     end
@@ -39,9 +41,12 @@ class Kafka_flow
   def kafka_bytes(hosts, topic)
     kafkaBytesOutfirst, timefirst = kafkaStatus(@@objectOut, hosts, topic)
     kafkaBytesOutlater, timelater = kafkaStatus(@@objectOut, hosts, topic)
-    puts "kafkaBytesOutPerSec:#{topic}:#{(kafkaBytesOutlater - kafkaBytesOutfirst) / (timelater - timefirst)}"
+    #by jiqiang test
+    #puts "kafkaBytesOutfirst: #{kafkaBytesOutfirst}   kafkaBytesOutlater:  #{kafkaBytesOutlater}"	
+    puts "kafkaBytesOutPerSec: #{topic}: #{(kafkaBytesOutlater - kafkaBytesOutfirst) / (timelater - timefirst)}"
     kafkaBytesInfirst, timefirst = kafkaStatus(@@objectIn, hosts, topic)
     kafkaBytesInlater, timelater = kafkaStatus(@@objectIn, hosts, topic)
-    puts "kafkaBytesInPerSec:#{topic}:#{(kafkaBytesInlater - kafkaBytesInfirst) / (timelater - timefirst)}"
+    #puts "kafkaBytesInfirst: #{kafkaBytesInfirst}   kafkaBytesInlater:  #{kafkaBytesInlater}"	
+    puts "kafkaBytesInPerSec:  #{topic}: #{(kafkaBytesInlater - kafkaBytesInfirst) / (timelater - timefirst)}"
   end
 end

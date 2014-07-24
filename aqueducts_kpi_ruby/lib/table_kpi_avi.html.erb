@@ -1,0 +1,138 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+  <title node='con:title' ></title>
+  <style type="text/css">
+  .datagrid table { 
+    border-collapse: collapse; 
+    text-align: left; 
+    width: 100%; 
+  } 
+  .datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif; 
+    background: #fff; 
+    overflow: hidden; 
+    border: 1px solid #006699; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px; 
+    border-radius: 3px; 
+  }
+  .datagrid table td, .datagrid table th { 
+    padding: 3px 10px; 
+  }
+  .datagrid table thead th {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+    background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+    background-color:#006699; 
+    color:#FFFFFF; 
+    font-size: 15px; 
+    font-weight: bold; 
+    border-left: 1px solid #0070A8; 
+  } 
+  .datagrid table thead th:first-child { 
+    border: none; 
+  }
+  .datagrid table tbody td { 
+    color: #00557F; 
+    border-left: 1px solid #E1EEF4;
+    font-size: 12px;
+    font-weight: normal; 
+  }
+  .datagrid table tbody td:first-child { 
+    border-left: none; 
+  }
+  .datagrid table tbody tr:last-child td { 
+    border-bottom: none; 
+  }
+  .datagrid table tfoot td div { 
+    border-top: 1px solid #006699;
+    background: #E1EEf4;
+  } 
+  .datagrid table tfoot td { 
+    padding: 0; 
+    font-size: 12px 
+  } 
+  .datagrid table tfoot td div{ 
+    padding: 2px; 
+  }
+  </style>
+</head>
+
+<body>
+  <div><%="Starttime: "%> <%=@time_from%>&nbsp;&nbsp;&nbsp; <%="Endtime: "%> <%=@time_to%> </div>
+  <div width="500px" class="datagrid">
+    <table>
+      <thead>
+        <tr>
+          <th>Aqueducts</th>
+          <th>KPI</th>
+          <th>Page View</th>
+          <th>Timeout Page View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%="Process"%> </td> 
+          <td><%=@pro_kpi%> </td> 
+          <td><%=@pro_pv%> </td> 
+          <td><%=@pro_delayPv%> </td> 
+        </tr>
+        <tr>
+          <td><%="Search"%> </td>
+          <td><%=@ser_kpi%> </td>
+          <td><%=@ser_pv%> </td>
+          <td><%=@ser_delayPv%> </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><div id="no-paging"> Process Timeout Page View : Page View &gt; 10s </div></td>
+          <td colspan="2"><div id="no-paging"> Search  Timeout Page View : Page View &gt; 1s  </div></td>
+        </tr>
+      </tfoot>
+    
+    </table>
+  </div>
+</body>
+<br>
+<body>
+  <div> <%="Starttime: "%><%=@time_from%>&nbsp;&nbsp;&nbsp; <%="Endtime: "%><%=@time_to%></div>
+  <div class="datagrid">
+    <table>
+      <thead>
+        <tr>
+          <th>Aqueducts</th>
+          <th>Availability</th>
+          <th>Agreed Service Time(min)</th>
+          <th>Downtime(min)</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%="Process"%> </td>
+          <td><%=@pro_avi%> </td>
+          <td><%=@pro_yes_num%> </td>
+          <td><%=@pro_no_num%> </td>
+        </tr>
+        <tr>
+          <td><%="Search"%> </td>
+          <td><%=@ser_avi%> </td>
+          <td><%=@ser_yes_num%> </td>
+          <td><%=@ser_no_num%> </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="4"><div id="no-paging"> availability = 1 - downtime / agreed service time </div></td>
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+</body>
+
+
+
